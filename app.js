@@ -31,7 +31,7 @@ const types = {
 //Appel de l'API pokemon
 
 function fetchpokemonBase(){
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=251")
         .then(response => response.json())
         .then((allPoke) => {
             //console.log(allPoke);
@@ -65,7 +65,7 @@ function fetchPokemonComplet(pokemon) {
             objPokemonFull.name = pokeData.names[4].name;
             allPokemon.push(objPokemonFull);
 
-            if(allPokemon.length === 151) {
+            if(allPokemon.length === 251) {
                 //console.log(allPokemon);
 
                 tableauFin = allPokemon.sort((a,b) => {
@@ -133,7 +133,7 @@ let index = 21;
 //Fonction qui va ajouter à la liste les prochain pokémon
 function addPoke(nb) {
     //Bloque le tout une fois que l'objectif est atteint 
-    if(index > 151) {
+    if(index > 251) {
         return;
     }
     const arrToAdd = allPokemon.slice(index, index + nb);
@@ -157,7 +157,7 @@ formRecherche.addEventListener('submit', (e) => {
 
 function recherche() {
     
-    if(index < 151) {
+    if(index < 251) {
         addPoke(130);
     }
 
